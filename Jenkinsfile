@@ -65,7 +65,7 @@ pipeline {
   options {
     buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
     // This fails the build immediately if any parallel step fails
-    parallelsAlwaysFailFast()
+    // parallelsAlwaysFailFast()
     preserveStashes(buildCount: 10)
     timeout(time: 3, unit: 'HOURS')
     timestamps()
@@ -319,7 +319,7 @@ pipeline {
             docker {
               image 'couchdbdev/aarch64-debian-stretch-erlang-20.3.8.20:latest'
               alwaysPull true
-              label 'arm'
+              label 'ubuntu'
             }
           }
           options {
